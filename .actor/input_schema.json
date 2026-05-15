@@ -7,6 +7,7 @@
       "title": "Start URL",
       "type": "string",
       "description": "Yandex vacancies search URL",
+      "editor": "textfield",
       "default": "https://yandex.ru/jobs/vacancies?text=product+manager&cities=moscow&pro_levels=middle&pro_levels=senior"
     }
   },
