@@ -1,0 +1,14 @@
+{
+  "title": "Yandex Job Parser Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrl": {
+      "title": "Start URL",
+      "type": "string",
+      "description": "Yandex vacancies search URL",
+      "default": "https://yandex.ru/jobs/vacancies?text=product+manager&cities=moscow&pro_levels=middle&pro_levels=senior"
+    }
+  },
+  "required": ["startUrl"]
+}
