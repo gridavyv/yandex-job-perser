@@ -20,18 +20,9 @@ const crawler = new PlaywrightCrawler({
             const title = await page.locator('h1').first().textContent().catch(() => null);
             const bodyText = await page.locator('body').innerText().catch(() => '');
 
-            const extractSection = (text, heading) => {
-                const regex = new RegExp(`${heading}\\s*([\\s\\S]*?)(?=Какие задачи вас ждут|Мы ждем, что вы|Будет плюсом, если вы|$)`, 'i');
-                const match = text.match(regex);
-                return match ? match[1].trim() : '';
-            };
-
             await Dataset.pushData({
-                url: request.url,
                 title: title?.trim() ?? '',
-                tasks: extractSection(bodyText, 'Какие задачи вас ждут'),
-                expectations: extractSection(bodyText, 'Мы ждем, что вы'),
-                plus: extractSection(bodyText, 'Будет плюсом, если вы'),
+                url: request.url,
                 fullText: bodyText
             });
 
